@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # 🍳 Cocinet — Gestor de Ventas y Reservas Online para Emprendedores Locales
 
 ![Laravel](https://img.shields.io/badge/Laravel-11.x%20%2F%2013.x-FF2D20?style=for-the-badge&logo=laravel&logoColor=white)
@@ -180,3 +181,7 @@ Se han precargado los siguientes accesos para la evaluación del sistema:
 ## 📄 Licencia
 
 Este proyecto fue desarrollado con fines educativos y de extensión universitaria para la **Universidad Tecnológica Nacional (UTN)** bajo la licencia [MIT](LICENSE).
+=======
+# Emprendex
+Emprendex es un sitio web en donde cliente y emprendedores se relacionan de una forma mas sencilla de lo habitual. Haciendo que el cliente compre y reserve sin dificultades, por otro lado el emprendedor tiene una visión clara sobre sus costos y sus ganancias.
+>>>>>>> 318575514f19c7d0e1fa5ecc496ad80408989738
