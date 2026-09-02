@@ -337,7 +337,7 @@ document.addEventListener('DOMContentLoaded', function() {
 <!-- JavaScript Carrito de Compras -->
 <script>
 const businessId = "{{ $business->id }}";
-const cartKey = 'cocinet_cart_' + businessId;
+const cartKey = 'emprendex_cart_' + businessId;
 
 function getCart() {
     try {

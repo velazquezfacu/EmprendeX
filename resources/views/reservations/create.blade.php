@@ -880,7 +880,7 @@
 
     // ── Cart Detection & Rendering ───────────────────────
     const businessId = "{{ $business->id ?? '' }}";
-    const cartKey = 'cocinet_cart_' + businessId;
+    const cartKey = 'emprendex_cart_' + businessId;
     const cartData = JSON.parse(localStorage.getItem(cartKey)) || [];
 
     if (cartData.length > 0) {

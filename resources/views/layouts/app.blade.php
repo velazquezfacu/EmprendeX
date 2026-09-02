@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>@yield('title', 'Cocinet')</title>
-    <meta name="description" content="Cocinet — Conectá con emprendimientos locales, reservá y pagá fácil.">
+    <title>@yield('title', 'Emprendex')</title>
+    <meta name="description" content="Emprendex — Cualquier emprendimiento, un solo lugar.">
     <link rel="icon" type="image/svg+xml" href="{{ asset('favicon.svg') }}">
     @vite(['resources/css/app.css'])
     @stack('styles')
@@ -21,7 +21,7 @@
         <div class="container mx-auto px-4 min-h-16 py-2 flex items-center justify-between gap-3">
 
             <a href="{{ route('register.select') }}" class="flex items-center group" style="text-decoration:none;">
-                <img src="{{ asset('cocinet_logo_v2.png') }}" alt="Cocinet" style="height: 90px;width:auto;mix-blend-mode:screen;margin-top:-6px;margin-bottom:-6px;">
+                <img src="{{ asset('Emprendex_logo_v2.png') }}" alt="Emprendex" style="height: 90px;width:auto;mix-blend-mode:screen;margin-top:-6px;margin-bottom:-6px;">
             </a>
 
             {{-- Desktop nav --}}
@@ -396,9 +396,9 @@
 
     <footer style="background-color:#1e3a2f;border-top:1px solid rgba(255,255,255,0.08);padding:2rem 1.5rem;text-align:center;position:relative;z-index:10;">
         <div style="max-width:480px;margin:0 auto;">
-            <p style="font-size:1.1rem;font-weight:700;color:#ffffff;letter-spacing:0.02em;">Cocinet</p>
+            <p style="font-size:1.1rem;font-weight:700;color:#ffffff;letter-spacing:0.02em;">Emprendex</p>
             <p style="font-size:0.75rem;color:rgba(255,255,255,0.45);margin-top:0.375rem;">Conectamos emprendimientos gastronómicos locales con quienes quieren comprar.</p>
-            <p style="font-size:0.7rem;color:rgba(255,255,255,0.3);margin-top:1rem;">&copy; {{ date('Y') }} Cocinet. Todos los derechos reservados.</p>
+            <p style="font-size:0.7rem;color:rgba(255,255,255,0.3);margin-top:1rem;">&copy; {{ date('Y') }} Emprendex. Todos los derechos reservados.</p>
         </div>
     </footer>
 

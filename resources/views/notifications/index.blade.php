@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Notificaciones | Cocinet')
+@section('title', 'Notificaciones | Emprendex')
 
 @section('main_align', 'items-start')
 @section('content_width', 'max-w-6xl mx-auto')

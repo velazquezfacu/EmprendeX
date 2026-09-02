@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Cocinet | Compras y Emprendimientos Locales')
+@section('title', 'Emprendex | Compras y Emprendimientos Locales')
 
 @section('main_align', 'items-start')
 @section('content_width', 'max-w-6xl mx-auto')
@@ -26,7 +26,7 @@
                    background-clip: text;
                    letter-spacing:-0.04em;
                    filter: drop-shadow(0 4px 24px rgba(0,0,0,0.4));">
-            Cocinet
+            Emprendex
         </h1>
 
         <p class="text-white/80 mt-4 max-w-2xl mx-auto text-sm md:text-lg animate-fade-in-up animate-delay-2" style="text-shadow: 0 1px 4px rgba(0,0,0,0.5);">
@@ -88,7 +88,7 @@
     {{-- Galería de emprendimientos --}}
     <section class="relative z-10 home-scroll-reveal">
         <div class="text-center mb-8">
-            <h2 class="text-xl md:text-2xl font-extrabold">Emprendimientos que podes encontrar en Cocinet</h2>
+            <h2 class="text-xl md:text-2xl font-extrabold">Emprendimientos que podes encontrar en Emprendex</h2>
             <p class="text-slate-400 mt-2 text-sm">Pastelería, comida casera, catering y mucho más.</p>
         </div>
         <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
@@ -151,7 +151,7 @@
                 <div style="color:rgba(255,255,255,0.85);">
                     <h3 class="text-xl font-bold mb-3" style="color:#ffffff !important;">Tu comida favorita, sin llamadas</h3>
                     <p style="font-size:0.95rem;color:rgba(255,255,255,0.65);line-height:1.7;">
-                        Entrás a Cocinet, buscás el emprendimiento que más te gusta y comprás tu turno o pedido en segundos. Sin mensajes por WhatsApp, sin esperar respuesta.
+                        Entrás a Emprendex, buscás el emprendimiento que más te gusta y comprás en segundos. Sin mensajes por WhatsApp, sin esperar respuesta.
                     </p>
                     <ul class="mt-4 space-y-2" style="font-size:0.875rem;color:rgba(255,255,255,0.6);">
                         <li style="display:flex;align-items:center;gap:0.5rem;"><span style="color:#f5a623;">✓</span> Catálogos con fotos y precios</li>
@@ -333,7 +333,7 @@
         <div class="absolute inset-0" style="background:linear-gradient(135deg, rgba(15,46,30,0.88) 0%, rgba(30,58,47,0.75) 100%);"></div>
         <div class="relative z-10 text-center py-16 px-6">
         <h2 class="text-2xl md:text-3xl font-bold mb-3" style="color:#ffffff !important;">¿Listo para empezar?</h2>
-        <p class="text-white/70 text-sm mb-8 max-w-md mx-auto">Unite a los emprendimientos y clientes que ya usan Cocinet para comprar sin complicaciones.</p>
+        <p class="text-white/70 text-sm mb-8 max-w-md mx-auto">Unite a los emprendimientos y clientes que ya usan Emprendex para comprar sin complicaciones.</p>
         <div class="flex flex-col sm:flex-row items-center justify-center gap-3">
             <a href="{{ route('register.client') }}"
                style="display:inline-flex;align-items:center;justify-content:center;padding:0.75rem 1.75rem;border-radius:0.75rem;font-size:0.875rem;font-weight:600;color:#1e3a2f;background:#ffffff;text-decoration:none;transition:all 0.2s;box-shadow:0 4px 14px rgba(0,0,0,0.25);"

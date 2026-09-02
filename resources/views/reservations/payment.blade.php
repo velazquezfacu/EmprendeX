@@ -159,7 +159,7 @@
 <script>
 // Clear cart on client side if flash session requires it
 @if(session('clear_cart_id'))
-    localStorage.removeItem('cocinet_cart_' + "{{ session('clear_cart_id') }}");
+    localStorage.removeItem('emprendex_cart_' + "{{ session('clear_cart_id') }}");
 @endif
 </script>
 @endpush
