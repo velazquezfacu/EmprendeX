@@ -15,37 +15,39 @@
              style="background-image: url('{{ asset('images/banner-home.png') }}'); background-size: cover; background-position: center;">
         <div class="absolute inset-0 rounded-3xl" style="background: linear-gradient(to bottom, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.45) 60%, rgba(0,0,0,0.6) 100%);"></div>
         <div class="relative z-10 pb-10 pt-10 px-4 md:px-10">
-        <span class="inline-block px-3 py-1 text-xs font-semibold tracking-wider text-indigo-400 bg-indigo-500/10 rounded-full border border-indigo-500/20 uppercase animate-fade-in-up">
-            Plataforma de compras locales
+       <span class="inline-block px-3 py-1 text-xs font-semibold tracking-wider text-black bg-zinc-100 border border-zinc-300 rounded-full uppercase animate-fade-in-up">
+             Plataforma de compras locales
         </span>
 
-        <h1 class="text-5xl md:text-7xl font-extrabold tracking-tight mt-5 max-w-3xl mx-auto leading-tight animate-fade-in-up animate-delay-1"
-            style="background: linear-gradient(135deg, #ffffff 0%, #d4f5e2 40%, #52b788 70%, #f5a623 100%);
-                   -webkit-background-clip: text;
-                   -webkit-text-fill-color: transparent;
-                   background-clip: text;
-                   letter-spacing:-0.04em;
-                   filter: drop-shadow(0 4px 24px rgba(0,0,0,0.4));">
+     <h1 class="text-5xl md:text-7xl font-extrabold tracking-tight mt-5 max-w-3xl mx-auto leading-tight animate-fade-in-up animate-delay-1"
+        style="background: linear-gradient(180deg, #ffffff 30%, #555555 100%);
+           -webkit-background-clip: text;
+           -webkit-text-fill-color: transparent;
+           background-clip: text;
+           letter-spacing:-0.04em;
+           filter: drop-shadow(0 4px 24px rgba(0,0,0,0.4));">
             Emprendex
         </h1>
 
         <p class="text-white/80 mt-4 max-w-2xl mx-auto text-sm md:text-lg animate-fade-in-up animate-delay-2" style="text-shadow: 0 1px 4px rgba(0,0,0,0.5);">
-            Conectamos emprendimientos gastronómicos locales con quienes quieren comprar. Explorá catálogos, elegí horarios y comprá al instante.
+            Conectamos emprendimientos con quienes quieren comprar. Explorá diversas propuestas, elegí opciones y comprá al instante.
         </p>
 
         <div class="flex flex-col sm:flex-row items-center justify-center gap-3 mt-8 animate-fade-in-up animate-delay-3">
             <a href="{{ route('register.client') }}"
-               class="inline-flex items-center justify-center px-6 py-3 rounded-xl text-sm font-semibold bg-gradient-to-r from-indigo-600 to-indigo-500 hover:from-indigo-500 hover:to-cyan-500 text-white shadow-lg shadow-indigo-600/20 transition-all duration-300 transform hover:scale-[1.02]">
+                class="inline-flex items-center justify-center px-6 py-3 rounded-xl text-sm font-bold text-black border border-white/20 shadow-lg transition-all duration-300 transform hover:scale-[1.02]"
+                style="background: radial-gradient(circle, #ffffff 15%, #d1d5db 50%, #000000 100%);">
                 Soy cliente
             </a>
             <a href="{{ route('map.index') }}"
                class="inline-flex items-center justify-center px-6 py-3 rounded-xl text-sm font-semibold bg-slate-900/40 border border-slate-800 transition-all duration-300 transform hover:scale-[1.02]">
                 Ver mapa
             </a>
-            <a href="#para-emprendedores"
-               class="home-btn-outline-peach inline-flex items-center justify-center px-6 py-3 rounded-xl text-sm font-semibold transition-all duration-300 transform hover:scale-[1.02]">
-                Soy emprendedor
-            </a>
+          <a href="#para-emprendedores"
+             class="inline-flex items-center justify-center px-6 py-3 rounded-xl text-sm font-bold text-white border border-black/20 shadow-lg transition-all duration-300 transform hover:scale-[1.02]"
+             style="background: radial-gradient(ellipse at center, #000000 20%, #374151 60%, #ffffff 100%) !important; color: #ffffff !important;">
+             Soy emprendedor
+          </a>
         </div>
 
         <div class="mt-14 flex justify-center animate-fade-in animate-delay-4">
@@ -68,29 +70,35 @@
 
     {{-- Trust bar --}}
     <section class="relative z-10 home-scroll-reveal">
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-            @foreach ([
-                ['Compras online 24/7', 'M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z'],
-                ['Emprendimientos locales', 'M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4'],
-                ['Confirmación inmediata', 'M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z'],
-                ['Panel para vendedores', 'M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z'],
-            ] as $item)
-                <div style="border-radius:0.875rem;background:linear-gradient(135deg,#1a4a33 0%,#0f2e1e 100%);border:1px solid rgba(255,255,255,0.1);padding:1rem;display:flex;align-items:flex-start;gap:0.75rem;box-shadow:0 0 20px rgba(45,106,79,0.25),0 4px 12px rgba(0,0,0,0.15);">
-                    <svg style="width:1.25rem;height:1.25rem;color:#f5a623;flex-shrink:0;margin-top:0.125rem;filter:drop-shadow(0 0 6px rgba(245,166,35,0.6));" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="{{ $item[1] }}" />
-                    </svg>
-                    <span style="font-size:0.875rem;font-weight:600;color:#ffffff;text-shadow:0 0 8px rgba(255,255,255,0.15);">{{ $item[0] }}</span>
-                </div>
-            @endforeach
-        </div>
+             <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                 @foreach ([
+                     ['Compras online 24/7', 'M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z'],
+                     ['Emprendimientos locales', 'M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4'],
+                     ['Confirmación inmediata', 'M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z'],
+                     ['Panel para vendedores', 'M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z'],
+                     ] as $item)
+                 <div style="border-radius:0.875rem;background:#0d0d0d;border:1px solid rgba(255,255,255,0.08);padding:1rem;display:flex;align-items:flex-start;gap:0.75rem;box-shadow:0 10px 25px -5px rgba(0,0,0,0.2);">
+                        <svg style="width:1.25rem;height:1.25rem;color:#f5a623;flex-shrink:0;margin-top:0.125rem;filter:drop-shadow(0 0 6px rgba(245,166,35,0.5));" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                           <path stroke-linecap="round" stroke-linejoin="round" d="{{ $item[1] }}" />
+                        </svg>
+                     <span style="font-size:0.875rem;font-weight:700;display:inline-block;background:linear-gradient(180deg, #ffffff 0%, #a1a1aa 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">
+                          {{ $item[0] }}
+                     </span>
+                 </div>
+                     @endforeach
+            </div>
     </section>
 
     {{-- Galería de emprendimientos --}}
     <section class="relative z-10 home-scroll-reveal">
-        <div class="text-center mb-8">
-            <h2 class="text-xl md:text-2xl font-extrabold">Emprendimientos que podes encontrar en Emprendex</h2>
-            <p class="text-slate-400 mt-2 text-sm">Pastelería, comida casera, catering y mucho más.</p>
+         <div class="text-center mb-8">
+            <h2 class="text-xl md:text-2xl font-extrabold inline-block" 
+               style="background: linear-gradient(180deg, #000000 0%, #000000 40%, #000000 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">
+               Emprendimientos que podes encontrar en Emprendex
+             </h2>
+            <p class="text-slate-500 mt-2 text-sm font-medium">Todo tipo de emprendimientos y más, encontralos acá!</p>
         </div>
+
         <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
             <div class="rounded-2xl overflow-hidden aspect-[4/3] home-scroll-reveal-delay-1">
                 <img src="{{ asset('images/galeria-pasteleria.jpg') }}"
@@ -149,7 +157,7 @@
                          class="w-full h-full object-cover">
                 </div>
                 <div style="color:rgba(255,255,255,0.85);">
-                    <h3 class="text-xl font-bold mb-3" style="color:#ffffff !important;">Tu comida favorita, sin llamadas</h3>
+                    <h3 class="text-xl font-bold mb-3" style="color:#ffffff !important;">Todo tipo de productos, al alcance de un clic.</h3>
                     <p style="font-size:0.95rem;color:rgba(255,255,255,0.65);line-height:1.7;">
                         Entrás a Emprendex, buscás el emprendimiento que más te gusta y comprás en segundos. Sin mensajes por WhatsApp, sin esperar respuesta.
                     </p>
@@ -205,7 +213,7 @@
                 <div class="absolute inset-0 flex items-center px-8 md:px-12">
                     <div>
                         <p class="text-xs font-bold uppercase tracking-widest mb-2" style="color:#f5a623;">Para emprendedores</p>
-                        <p class="text-2xl md:text-3xl font-extrabold leading-tight max-w-xs" style="color:#ffffff !important;">Tu cocina, tu negocio, tu panel.</p>
+                        <p class="text-2xl md:text-3xl font-extrabold leading-tight max-w-xs" style="color:#ffffff !important;">Tu idea, tu tienda, tu panel.</p>
                     </div>
                 </div>
             </div>

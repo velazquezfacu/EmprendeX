@@ -6,7 +6,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>@yield('title', 'Emprendex')</title>
     <meta name="description" content="Emprendex — Cualquier emprendimiento, un solo lugar.">
-    <link rel="icon" type="image/svg+xml" href="{{ asset('favicon.svg') }}">
+    <link rel="icon" type="image/svg+xml" href="{{ asset('favicon.ico') }}">
     @vite(['resources/css/app.css'])
     @stack('styles')
     <style>
@@ -17,7 +17,7 @@
 
     @stack('page_bg')
 
-    <header class="sticky top-0 z-50 w-full border-b border-slate-800 bg-slate-950/75 backdrop-blur-md">
+    <header class="sticky top-0 z-50 w-full bg-[linear-gradient(180deg,#000000_0%,#000000_70%,#fdfbf7_100%)] backdrop-blur-md">
         <div class="container mx-auto px-4 min-h-16 py-2 flex items-center justify-between gap-3">
 
             <a href="{{ route('register.select') }}" class="flex items-center group" style="text-decoration:none;">
