@@ -120,14 +120,14 @@
 
     {{-- Para clientes --}}
     <section id="clientes" class="relative z-10 scroll-mt-24">
-        <div class="rounded-3xl p-8 md:p-12 overflow-hidden relative" style="background:radial-gradient(ellipse at 50% 0%, #2d6a4f 0%, #1a4a33 45%, #0f2e1e 100%);border:1px solid rgba(255,255,255,0.08);">
+        <div class="rounded-3xl p-8 md:p-12 overflow-hidden relative" style="background:radial-gradient(ellipse at 50% 0%, #000 0%, #000 45%, #0000 250%);border:1px solid rgba(255,255,255,0.08);">
             <div class="absolute inset-0 opacity-5 pointer-events-none" style="background-image:radial-gradient(#ffffff 1px,transparent 1px);background-size:16px 16px;"></div>
 
             <div class="relative z-10 text-center mb-10 home-scroll-reveal">
                 <span style="display:inline-block;padding:0.2rem 0.75rem;font-size:0.7rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:rgba(255,255,255,0.7);background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.2);border-radius:9999px;">
                     Para clientes
                 </span>
-                <h2 class="text-2xl md:text-3xl font-extrabold mt-4" style="color:#ffffff !important;">Tu próxima compra, a un clic</h2>
+                <h2 class="text-2xl md:text-3xl font-extrabold mt-4" style="color:#ffffff !important;">Tu próxima compra, a un clic.</h2>
                 <p style="color:rgba(255,255,255,0.65);margin-top:0.5rem;max-width:36rem;margin-left:auto;margin-right:auto;font-size:0.95rem;">
                     Descubrí emprendimientos de tu zona, mirá disponibilidad y comprá sin llamadas ni mensajes.
                 </p>
@@ -152,7 +152,7 @@
             {{-- Foto 50/50 para clientes --}}
             <div class="relative z-10 grid md:grid-cols-2 gap-6 mb-10 items-center home-scroll-reveal">
                 <div class="rounded-2xl overflow-hidden shadow-xl aspect-[4/3]">
-                <img src="{{ asset('images/clientes-celular.jpg') }}"
+                <img src="{{ asset('images/comprando_emprendex.png') }}"
                      alt="Persona eligiendo comida desde su celular"
                          class="w-full h-full object-cover">
                 </div>
@@ -191,7 +191,7 @@
 
     {{-- Para emprendedores --}}
     <section id="para-emprendedores" class="relative z-10 scroll-mt-24">
-        <div class="rounded-3xl p-8 md:p-12 overflow-hidden relative" style="background:radial-gradient(ellipse at 50% 0%, #2d6a4f 0%, #1a4a33 45%, #0f2e1e 100%);border:1px solid rgba(255,255,255,0.08);">
+        <div class="rounded-3xl p-8 md:p-12 overflow-hidden relative" style="background:radial-gradient(ellipse at 50% 0%, #000 0%, #000 45%, #0000 250%);border:1px solid rgba(255,255,255,0.08);">
             <div class="absolute inset-0 opacity-5 pointer-events-none" style="background-image:radial-gradient(#ffffff 1px,transparent 1px);background-size:16px 16px;"></div>
 
             <div class="relative z-10 text-center mb-10 home-scroll-reveal">
@@ -276,69 +276,95 @@
 
     {{-- Casos de uso --}}
     <section class="relative z-10 home-scroll-reveal">
-        <h2 class="text-xl md:text-2xl font-extrabold text-center mb-8">Hecho para la vida real</h2>
-        <div class="grid md:grid-cols-2 gap-6">
-            <div class="rounded-2xl border border-slate-800 bg-slate-900/40 p-6">
-                <p class="text-xs font-bold uppercase tracking-wider text-indigo-400 mb-2">Cliente</p>
-                <p class="text-sm text-slate-300 italic">"Lucas reservó un turno para retiro en 2 clics, sin escribirle a nadie por WhatsApp."</p>
-            </div>
-            <div class="rounded-2xl border border-slate-800 bg-slate-900/40 p-6">
-                <p class="text-xs font-bold uppercase tracking-wider mb-2" style="color: #d88448;">Emprendedor</p>
-                <p class="text-sm text-slate-300 italic">"María publicó su catálogo de pastelería y recibe compras para los fines de semana desde un solo panel."</p>
-            </div>
-        </div>
+        <h2 class="text-xl md:text-2xl font-extrabold text-center mb-8" style="color: #000000 !important; -webkit-text-fill-color: #000000 !important;">Hecho para la vida real</h2>
+       <div class="grid md:grid-cols-2 gap-6">
+                 <div class="rounded-2xl border border-white/5 p-6" style="background-color: #0a0a0a; box-shadow: 0 8px 20px rgba(0,0,0,0.25);">
+                     <p class="text-xs font-bold uppercase tracking-wider mb-2" style="color:#e8961a !important;">Cliente</p>
+                     <p class="text-sm italic" style="color: rgba(255, 255, 255, 0.9) !important;">"Sandra encontró un emprendimiento cerca, eligió lo que necesitaba y realizó su compra en minutos."</p>
+                 </div>
+                 <div class="rounded-2xl border border-white/5 p-6" style="background-color: #0a0a0a; box-shadow: 0 8px 20px rgba(0,0,0,0.25);">
+                     <p class="text-xs font-bold uppercase tracking-wider mb-2" style="color: #e8961a !important;">Emprendedor</p>
+                     <p class="text-sm italic" style="color: rgba(255, 255, 255, 0.9) !important;">"Claudio publicó su emprendimiento y recibe compras y consultas de clientes desde un solo lugar."</p>
+                 </div>
+             </div> 
+</div>
     </section>
 
     {{-- FAQ --}}
     <section class="relative z-10 home-scroll-reveal pb-8">
-        <h2 class="text-xl md:text-2xl font-extrabold text-center mb-8">Preguntas frecuentes</h2>
+        <h2 class="text-xl md:text-2xl font-extrabold text-center mb-8" style="color: #000000 !important; -webkit-text-fill-color: #000000 !important;">Preguntas frecuentes</h2>
         <div class="grid md:grid-cols-2 gap-4 max-w-4xl mx-auto">
-            <details class="home-faq rounded-xl border border-slate-800 bg-slate-900/40 p-4 group">
-                <summary class="flex items-center justify-between text-sm font-semibold">
-                    ¿Es gratis registrarse como cliente?
-                    <svg class="w-4 h-4 text-slate-400 group-open:rotate-180 transition-transform" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
-                    </svg>
+            <details class="group rounded-2xl overflow-hidden border-0 transition-all duration-300 bg-[#0a0a0a] open:bg-gradient-to-b open:from-[#0a0a0a] open:from-0% open:via-[#333333] open:via-20% open:to-white open:to-60%">
+                 <summary class="flex items-center justify-between p-4 text-sm font-bold cursor-pointer bg-transparent outline-none select-none" 
+                         style="color: #ffffff !important; -webkit-text-fill-color: #e8961a !important;">
+                           <span>¿Es gratis registrarse como cliente?</span>
+                           <svg class="w-4 h-4 group-open:rotate-180 transition-transform duration-300" 
+                               style="color: #ffffff !important;" 
+                               fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                             <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+                             </svg>
                 </summary>
-                <p class="text-sm text-slate-400 mt-3">Sí, crear una cuenta de cliente es gratuito y te permite explorar catálogos y realizar compras.</p>
+                <div class="px-4 pb-4 pt-2 text-sm font-medium" 
+                     style="color: #000000 !important; -webkit-text-fill-color: #000000 !important;">
+                   Sí, crear una cuenta como cliente es totalmente gratuito. Podrás explorar todos los emprendimientos locales y realizar compras sin ningún costo adicional.
+                 </div>
             </details>
-            <details class="home-faq rounded-xl border border-slate-800 bg-slate-900/40 p-4 group">
-                <summary class="flex items-center justify-between text-sm font-semibold">
-                    ¿Cómo compro un producto o turno?
-                    <svg class="w-4 h-4 text-slate-400 group-open:rotate-180 transition-transform" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
-                    </svg>
+            <details class="group rounded-2xl overflow-hidden border-0 transition-all duration-300 bg-[#0a0a0a] open:bg-gradient-to-b open:from-[#0a0a0a] open:from-0% open:via-[#333333] open:via-20% open:to-white open:to-60%">
+                 <summary class="flex items-center justify-between p-4 text-sm font-bold cursor-pointer bg-transparent outline-none select-none" 
+                         style="color: #ffffff !important; -webkit-text-fill-color: #e8961a !important;">
+                           <span>¿Que necesito para registrar mi emprendimiento?</span>
+                           <svg class="w-4 h-4 group-open:rotate-180 transition-transform duration-300" 
+                               style="color: #ffffff !important;" 
+                               fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                             <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+                             </svg>
                 </summary>
-                <p class="text-sm text-slate-400 mt-3">Registrate, elegí un emprendimiento, seleccioná el producto o horario disponible y confirmá tu compra.</p>
+                <div class="px-4 pb-4 pt-2 text-sm font-medium" 
+                     style="color: #000000 !important; -webkit-text-fill-color: #000000 !important;">
+                   Solo necesitás un email, los datos de tu negocio y tus productos. Podés completar el resto después desde tu perfil.
+                 </div>
             </details>
-            <details class="home-faq rounded-xl border border-slate-800 bg-slate-900/40 p-4 group">
-                <summary class="flex items-center justify-between text-sm font-semibold">
-                    ¿Qué necesito para registrar mi emprendimiento?
-                    <svg class="w-4 h-4 text-slate-400 group-open:rotate-180 transition-transform" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
-                    </svg>
+              <details class="group rounded-2xl overflow-hidden border-0 transition-all duration-300 bg-[#0a0a0a] open:bg-gradient-to-b open:from-[#0a0a0a] open:from-0% open:via-[#333333] open:via-20% open:to-white open:to-60%">
+                 <summary class="flex items-center justify-between p-4 text-sm font-bold cursor-pointer bg-transparent outline-none select-none" 
+                         style="color: #ffffff !important; -webkit-text-fill-color: #e8961a !important;">
+                           <span>¿Puedo cambiar mis horarios después?</span>
+                           <svg class="w-4 h-4 group-open:rotate-180 transition-transform duration-300" 
+                               style="color: #ffffff !important;" 
+                               fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                             <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+                             </svg>
                 </summary>
-                <p class="text-sm text-slate-400 mt-3">Solo necesitás un email, los datos de tu negocio y tus productos. Podés completar el resto después desde el panel.</p>
+                <div class="px-4 pb-4 pt-2 text-sm font-medium" 
+                     style="color: #000000 !important; -webkit-text-fill-color: #000000 !important;">
+                   Sí, desde tu panel podés actualizar disponibilidad, productos y datos de contacto cuando quieras.
+                 </div>
             </details>
-            <details class="home-faq rounded-xl border border-slate-800 bg-slate-900/40 p-4 group">
-                <summary class="flex items-center justify-between text-sm font-semibold">
-                    ¿Puedo cambiar mis horarios después?
-                    <svg class="w-4 h-4 text-slate-400 group-open:rotate-180 transition-transform" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
-                    </svg>
+            <details class="group rounded-2xl overflow-hidden border-0 transition-all duration-300 bg-[#0a0a0a] open:bg-gradient-to-b open:from-[#0a0a0a] open:from-0% open:via-[#333333] open:via-20% open:to-white open:to-60%">
+                 <summary class="flex items-center justify-between p-4 text-sm font-bold cursor-pointer bg-transparent outline-none select-none" 
+                         style="color: #ffffff !important; -webkit-text-fill-color: #e8961a !important;">
+                           <span>¿De que forma me llega el pago?</span>
+                           <svg class="w-4 h-4 group-open:rotate-180 transition-transform duration-300" 
+                               style="color: #ffffff !important;" 
+                               fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                             <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+                             </svg>
                 </summary>
-                <p class="text-sm text-slate-400 mt-3">Sí, desde tu panel podés actualizar disponibilidad, productos y datos de contacto cuando quieras.</p>
+                <div class="px-4 pb-4 pt-2 text-sm font-medium" 
+                     style="color: #000000 !important; -webkit-text-fill-color: #000000 !important;">
+                   Podes ingresar tu alias de Mercado Pago y la API se encargará de procesar los pagos de tus clientes. El dinero se acreditará en tu cuenta de Mercado Pago según sus tiempos.
+                 </div>
             </details>
+            
         </div>
     </section>
 
 
     {{-- Footer CTA --}}
-    <section class="relative z-10 home-scroll-reveal rounded-3xl overflow-hidden" style="min-height:320px;">
-        <img src="{{ asset('images/cta-mesa.jpg') }}"
+    <section class="relative z-10 home-scroll-reveal rounded-3xl overflow-hidden mb-20" style="min-height:320px;">
+        <img src="{{ asset('images/emprendedora_comenzamos.png') }}"
              alt="Mesa lista para una cena"
              class="absolute inset-0 w-full h-full object-cover object-center">
-        <div class="absolute inset-0" style="background:linear-gradient(135deg, rgba(15,46,30,0.88) 0%, rgba(30,58,47,0.75) 100%);"></div>
+        <div class="absolute inset-0" style="background: linear-gradient(135deg, rgba(10,10,10,0.85) 0%, rgba(20,20,20,0.65) 100%); filter: drop-shadow(0 4px 24px rgba(0,0,0,0.4));"></div>
         <div class="relative z-10 text-center py-16 px-6">
         <h2 class="text-2xl md:text-3xl font-bold mb-3" style="color:#ffffff !important;">¿Listo para empezar?</h2>
         <p class="text-white/70 text-sm mb-8 max-w-md mx-auto">Unite a los emprendimientos y clientes que ya usan Emprendex para comprar sin complicaciones.</p>
@@ -361,7 +387,7 @@
 
     {{-- Contacto emprendedores (final de página) --}}
     <section id="contacto-emprendedores" class="relative z-10 scroll-mt-24 home-scroll-reveal pb-4">
-        <div class="rounded-3xl overflow-hidden relative" style="padding:4rem 3rem 5rem;background:radial-gradient(ellipse at 50% 0%, #2d6a4f 0%, #1a4a33 45%, #0f2e1e 100%);border:1px solid rgba(255,255,255,0.08);">
+        <div class="rounded-3xl p-8 md:p-12 overflow-hidden relative" style="background:radial-gradient(ellipse at 50% 0%, #000 0%, #000 45%, #0000 250%);border:1px solid rgba(255,255,255,0.08);">
             <div class="absolute inset-0 opacity-5 pointer-events-none" style="background-image:radial-gradient(#ffffff 1px,transparent 1px);background-size:16px 16px;"></div>
 
             <div class="relative z-10 text-center mb-8">

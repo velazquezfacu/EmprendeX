@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\EntrepreneurContactMail;
+use Illuminate\Support\Facades\Mail;
 use App\Models\EntrepreneurContact;
 use Illuminate\Http\Request;
 
@@ -18,6 +20,9 @@ class EntrepreneurContactController extends Controller
         ]);
 
         EntrepreneurContact::create($validated);
+
+        Mail::to('facujunior1@gmail.com')->send(new EntrepreneurContactMail($validated));
+
 
         return redirect()
             ->to(route('register.select') . '#contacto-emprendedores')

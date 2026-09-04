@@ -394,14 +394,19 @@
     </main>
         
 
-    <footer style="background-color:#1e3a2f;border-top:1px solid rgba(255,255,255,0.08);padding:2rem 1.5rem;text-align:center;position:relative;z-index:10;">
-        <div style="max-width:480px;margin:0 auto;">
-            <p style="font-size:1.1rem;font-weight:700;color:#ffffff;letter-spacing:0.02em;">Emprendex</p>
-            <p style="font-size:0.75rem;color:rgba(255,255,255,0.45);margin-top:0.375rem;">Conectamos emprendimientos gastronómicos locales con quienes quieren comprar.</p>
-            <p style="font-size:0.7rem;color:rgba(255,255,255,0.3);margin-top:1rem;">&copy; {{ date('Y') }} Emprendex. Todos los derechos reservados.</p>
-        </div>
-    </footer>
-
+<footer style="background: linear-gradient(180deg, #f5f0e6 0%, #0a0a0a 45%); border: 0 !important; outline: none !important; margin-top: -1px; padding: 3rem 1.5rem 2rem 1.5rem; text-align: center; position: relative; z-index: 10;">
+    <div style="max-width:480px; margin:0 auto;">
+        <p style="font-size:1.25rem; font-weight:800; color:#ffffff !important; -webkit-text-fill-color:#ffffff !important; letter-spacing:0.02em;">
+            Emprendex
+        </p>
+        <p style="font-size:0.8rem; color:rgba(255,255,255,0.75) !important; margin-top:0.375rem; font-weight:500;">
+            Conectamos emprendimientos gastronómicos locales con quienes quieren comprar.
+        </p>
+        <p style="font-size:0.7rem; color:rgba(255,255,255,0.4) !important; margin-top:1.25rem;">
+            &copy; {{ date('Y') }} Emprendex. Todos los derechos reservados.
+        </p>
+    </div>
+</footer>
     <script>
         document.addEventListener('DOMContentLoaded', function () {
 
