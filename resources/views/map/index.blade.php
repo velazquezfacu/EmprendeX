@@ -11,38 +11,48 @@
 
 @section('content')
 <div class="space-y-8 home-scroll-reveal is-visible">
-    <div class="page-banner">
-        <img src="{{ asset('images/banner-home.png') }}" alt="" class="page-banner__bg">
-        <div class="page-banner__overlay"></div>
-        <div class="page-banner__content">
-            <h1 class="page-banner__title">Emprendimientos locales en el mapa</h1>
-            <p class="page-banner__subtitle">Encontrá negocios registrados, mirá dónde están y reservá desde su catálogo.</p>
-        </div>
+    <div class="page-banner" style="background-color: #0a0a0a !important;">
+    <img src="{{ asset('images/banner-home.png') }}" alt="" class="page-banner__bg">
+    <div class="page-banner__overlay" style="background: linear-gradient(135deg, rgba(10,10,10,0.9) 0%, rgba(10,10,10,0.75) 100%);"></div>
+    <div class="page-banner__content">
+        <h1 class="page-banner__title" style="color: #f5a623 !important; -webkit-text-fill-color: #f5a623 !important;">
+            Emprendimientos locales en el mapa
+        </h1>
+        <p class="page-banner__subtitle" style="color: #f5a623 !important; opacity: 0.9;">
+            Encontrá emprendimientos registrados, ubicalos en el mapa y comprá desde su catálogo.
+        </p>
     </div>
+</div>
 
     <div id="map-shell" class="map-page-shell hidden">
-        <div class="map-page-layout">
-            <aside class="map-sidebar">
-                <div class="map-sidebar-header">
-                    <p class="map-sidebar-title">Emprendimientos</p>
-                    <span id="map-count-badge" class="map-count-badge">{{ $businessCount }}</span>
-                </div>
-
-                <label class="map-search-wrap">
-                    <svg class="map-search-icon" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-4.35-4.35M11 18a7 7 0 100-14 7 7 0 000 14z" />
-                    </svg>
-                    <input type="search" id="map-search" class="map-search-input" placeholder="Buscar por nombre o dirección…" autocomplete="off">
-                </label>
-
-                <ul id="map-business-list" class="map-business-list" aria-label="Lista de emprendimientos"></ul>
-            </aside>
-
-            <div class="map-panel">
-                <div id="map" class="map-container map-container-page" aria-label="Mapa de emprendimientos locales"></div>
+    <div class="map-page-layout">
+        <aside class="map-sidebar" style="background-color: #0a0a0a; border-radius: 1.5rem; padding: 1.5rem; border: 1px solid rgba(255,255,255,0.08); box-shadow: 0 8px 24px rgba(0,0,0,0.3);">
+            
+            <!-- Header del Sidebar -->
+            <div class="map-sidebar-header" style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 1rem;">
+                <p class="map-sidebar-title" style="font-size: 1.1rem; font-weight: 800; color: #ffffff !important;">Emprendimientos</p>
+                <span id="map-count-badge" class="map-count-badge" style="background: #f5a623; color: #0a0a0a; font-weight: 800; padding: 0.2rem 0.6rem; border-radius: 9999px; font-size: 0.75rem;">{{ $businessCount }}</span>
             </div>
+
+            <!-- Buscador -->
+            <label class="map-search-wrap" style="position: relative; display: block; margin-bottom: 1.25rem;">
+                <svg class="map-search-icon" style="position: absolute; left: 0.875rem; top: 50%; transform: translateY(-50%); width: 1.25rem; height: 1.25rem; color: #f5a623;" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-4.35-4.35M11 18a7 7 0 100-14 7 7 0 000 14z" />
+                </svg>
+                <input type="search" id="map-search" class="map-search-input" placeholder="Buscar por nombre o dirección…" autocomplete="off"
+                       style="width: 100%; padding: 0.75rem 1rem 0.75rem 2.75rem; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.15); border-radius: 0.875rem; font-size: 0.875rem; color: #ffffff; outline: none; box-sizing: border-box;">
+            </label>
+
+            <!-- Lista de Emprendimientos -->
+            <ul id="map-business-list" class="map-business-list" aria-label="Lista de emprendimientos" style="display: flex; flex-direction: column; gap: 0.75rem; list-style: none; padding: 0; margin: 0;"></ul>
+        </aside>
+
+        <!-- Contenedor del Mapa -->
+        <div class="map-panel" style="border-radius: 1.5rem; overflow: hidden; border: 1px solid rgba(255,255,255,0.08); box-shadow: 0 8px 24px rgba(0,0,0,0.2);">
+            <div id="map" class="map-container map-container-page" aria-label="Mapa de emprendimientos locales"></div>
         </div>
     </div>
+</div>
 
     <div id="map-empty-state" class="hidden map-empty-state">
         <div class="map-empty-icon" aria-hidden="true">
@@ -115,9 +125,9 @@ document.addEventListener('DOMContentLoaded', function () {
 
         L.control.zoom({ position: 'bottomright' }).addTo(map);
 
-        L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
-            maxZoom: 19,
-            attribution: '&copy; OpenStreetMap &copy; CARTO'
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                maxZoom: 19,
+                  attribution: '&copy; OpenStreetMap'
         }).addTo(map);
 
         markerLayer = L.layerGroup().addTo(map);

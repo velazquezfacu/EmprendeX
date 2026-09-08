@@ -10,12 +10,25 @@
 @section('content_width', 'max-w-6xl mx-auto')
 
 @section('content')
-<div class="page-banner" style="margin-bottom:1.5rem;">
-    <img src="{{ asset('images/banner-home.png') }}" alt="" class="page-banner__bg">
-    <div class="page-banner__overlay"></div>
-    <div class="page-banner__content">
-        <h1 class="page-banner__title">Disponibilidad</h1>
-        <p class="page-banner__subtitle">Configurá los días y horarios en que aceptás reservas.</p>
+<div class="page-banner text-center max-w-xl mx-auto p-8 rounded-2xl shadow-2xl overflow-hidden relative" 
+     style="margin-bottom: 1.5rem; background-color: rgba(18, 18, 18, 0.65) !important; backdrop-filter: blur(12px) !important; -webkit-backdrop-filter: blur(12px) !important; border: 1px solid rgba(255, 255, 255, 0.12) !important;">
+    
+    <!-- Imagen de fondo difuminada -->
+    <img src="{{ asset('images/banner-home.png') }}" alt="" class="page-banner__bg absolute inset-0 w-full h-full object-cover pointer-events-none" 
+         style="filter: blur(12px) !important; opacity: 0.35 !important; transform: scale(1.08) !important; z-index: 0;">
+
+    <div class="page-banner__content relative z-10">
+        <!-- Título Blanco -->
+        <h1 class="page-banner__title text-2xl md:text-3xl font-extrabold tracking-tight mb-2" 
+            style="color: #ffffff !important; -webkit-text-fill-color: #ffffff !important;">
+            Disponibilidad
+        </h1>
+        
+        <!-- Subtítulo Amarillo -->
+        <p class="page-banner__subtitle text-sm md:text-base font-medium" 
+           style="color: #f5a623 !important; -webkit-text-fill-color: #f5a623 !important; opacity: 0.9;">
+            Establecé los días y horarios en que aceptás reservas.
+        </p>
     </div>
 </div>
 <div class="max-w-3xl mx-auto py-6 sm:py-8 px-4">
@@ -108,10 +121,13 @@
           <svg class="availability__footer-info-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
           Todos los cambios se guardan al presionar Guardar.
         </p>
-        <button type="button" id="btn-save-availability" class="availability__btn-save">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 13l4 4L19 7"/></svg>
-          Guardar horarios
-        </button>
+        <button type="button" id="btn-save-availability" class="availability__btn-save inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-sm font-semibold transition-all shadow-md hover:bg-zinc-800 cursor-pointer"
+        style="background-color: #0a0a0a !important; color: #ffffff !important; border: 1px solid rgba(255, 255, 255, 0.15) !important; background-image: none !important;">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color: #ffffff !important;">
+        <path d="M5 13l4 4L19 7"/>
+    </svg>
+    <span style="color: #ffffff !important;">Guardar horarios</span>
+</button>
       </div>
     </div>
   </div>

@@ -6,7 +6,7 @@
 @section('content_width', 'max-w-6xl mx-auto')
 
 @push('page_bg')
-<div style="position:fixed;inset:0;z-index:0;pointer-events:none;background:#1e3a2f;"></div>
+<div style="position:fixed; inset:0; z-index:0; pointer-events:none; background-image: linear-gradient(rgba(10, 10, 10, 0.6), rgba(10, 10, 10, 0.6)), url('{{ asset('images/banner-home.png') }}'); background-size: cover; background-position: center; filter: blur(8px); transform: scale(1.05);"></div>
 @endpush
 
 @section('content')
@@ -256,10 +256,10 @@ document.addEventListener('DOMContentLoaded', function() {
         {{-- Upcoming reservations --}}
         <div class="mt-10 max-w-3xl mx-auto text-left space-y-6">
             <div class="flex items-center justify-between">
-                <h2 class="text-lg font-bold text-white flex items-center gap-2">
-                    <svg class="w-5 h-5 text-indigo-400" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-                    Próximas Compras
-                </h2>
+                <h2 class="text-lg font-bold flex items-center gap-2" style="color: #000000 !important;">
+    <svg class="w-5 h-5 text-indigo-400" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+    Próximas Compras
+</h2>
                 <a href="{{ route('reservations.manage') }}" class="text-xs font-medium text-indigo-400 hover:text-indigo-300 transition-colors">Ver todas →</a>
             </div>
 
@@ -332,12 +332,16 @@ document.addEventListener('DOMContentLoaded', function() {
             </div>
         </div>
 
-        <div class="mt-8 text-center">
-            <a href="{{ route('reservations.manage') }}" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-sm font-semibold text-white bg-indigo-600/20 border border-indigo-500/30 hover:bg-indigo-600/30 transition-all">
-                <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"/></svg>
-                Gestionar Pedidos
-            </a>
-        </div>
+       <div class="mt-8 text-center">
+    <a href="{{ route('reservations.manage') }}" 
+       class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-sm font-semibold transition-all shadow-md hover:bg-zinc-800"
+       style="background-color: #0a0a0a !important; color: #ffffff !important; border: 1px solid rgba(255, 255, 255, 0.15) !important; background-image: none !important;">
+        <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" style="color: #ffffff !important;">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"/>
+        </svg>
+        <span style="color: #ffffff !important;">Gestionar Pedidos</span>
+    </a>
+</div>
     @endif
 
     @if(auth()->user()->role === 'admin')

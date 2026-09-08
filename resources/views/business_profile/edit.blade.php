@@ -449,11 +449,10 @@ document.addEventListener('DOMContentLoaded', function () {
 
     var map = L.map('profile-location-map', { zoomControl: true }).setView(center, zoom);
 
-    L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
-        maxZoom: 19,
-        attribution: '&copy; OpenStreetMap &copy; CARTO'
-    }).addTo(map);
-
+   L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                    maxZoom: 19,
+                     attribution: '&copy; OpenStreetMap'
+            }).addTo(map);
     var markerIcon = L.divIcon({
         className: 'map-marker-wrap',
         html: '<div class="map-marker-pin" aria-hidden="true"><span class="map-marker-dot"></span></div>',

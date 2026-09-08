@@ -29,10 +29,9 @@
                 <nav class="flex items-center space-x-1 text-sm font-medium overflow-x-auto min-w-0">
 
                     <a href="{{ route('map.index') }}"
-                       class="shrink-0 px-3 py-1.5 rounded-lg text-slate-300 hover:text-white hover:bg-slate-800 transition-all {{ request()->routeIs('map.*') ? 'bg-green-600/20 text-green-400 border border-green-600/30' : '' }}">
+                       class="shrink-0 px-3 py-1.5 rounded-lg text-slate-300 hover:text-white hover:bg-slate-800 transition-all">
                         Mapa
                     </a>
-
                     @auth
                         @if(auth()->user()->role === 'client')
                             <a href="{{ route('dashboard') }}"
@@ -47,17 +46,16 @@
                     @endauth
 
 
-                    @guest
+                   @guest
                         <a href="{{ route('login') }}"
-                        class="px-3 py-1.5 rounded-lg text-slate-300 hover:text-white hover:bg-slate-800 transition-all {{ request()->routeIs('login') ? 'bg-green-600/20 text-green-400 border border-green-600/30' : '' }}">
+                        class="px-3 py-1.5 rounded-lg text-slate-300 hover:text-white hover:bg-slate-800 transition-all">
                             Ingresar
                         </a>
                         <a href="{{ route('register.hub') }}"
-                        class="px-3 py-1.5 rounded-lg text-slate-300 hover:text-white hover:bg-slate-800 transition-all {{ request()->routeIs('register.*') && !request()->routeIs('register.select') ? 'bg-green-600/20 text-green-400 border border-green-600/30' : '' }}">
+                        class="px-3 py-1.5 rounded-lg text-slate-300 hover:text-white hover:bg-slate-800 transition-all">
                             Registrarse
                         </a>
                     @endguest
-
                     @auth
                         @if(auth()->user()->role === 'admin')
                             <a href="{{ route('admin.dashboard') }}"
@@ -75,13 +73,13 @@
 
                             <span class="text-slate-600 px-1 shrink-0">|</span>
 
-                            <a href="{{ route('dashboard') }}"
-                            class="shrink-0 px-3 py-1.5 rounded-lg text-slate-300 hover:text-white hover:bg-slate-800 transition-all {{ request()->routeIs('dashboard') ? 'bg-green-600/20 text-green-400 border border-green-600/30' : '' }}">
+                           <a href="{{ route('dashboard') }}"
+                            class="shrink-0 px-3 py-1.5 rounded-lg text-slate-300 hover:text-white hover:bg-slate-800 transition-all">
                                 Dashboard
                             </a>
 
                             <a href="{{ route('reservations.manage') }}"
-                            class="shrink-0 px-3 py-1.5 rounded-lg text-slate-300 hover:text-white hover:bg-slate-800 transition-all flex items-center gap-1.5 {{ request()->routeIs('reservations.*') ? 'bg-green-600/20 text-green-400 border border-green-600/30' : '' }}">
+                            class="shrink-0 px-3 py-1.5 rounded-lg text-slate-300 hover:text-white hover:bg-slate-800 transition-all flex items-center gap-1.5">
                                 <span>Pedidos</span>
                                 @if($pendingReservationsCount > 0)
                                     <span class="px-1.5 py-0.5 rounded-full bg-rose-600 text-white text-[10px] font-bold shadow-sm shadow-rose-600/20">
@@ -91,7 +89,7 @@
                             </a>
 
                             <a href="{{ route('availability.index') }}"
-                            class="shrink-0 px-3 py-1.5 rounded-lg text-slate-300 hover:text-white hover:bg-slate-800 transition-all {{ request()->routeIs('availability.*') ? 'bg-green-600/20 text-green-400 border border-green-600/30' : '' }}">
+                            class="shrink-0 px-3 py-1.5 rounded-lg text-slate-300 hover:text-white hover:bg-slate-800 transition-all">
                                 Horarios
                             </a>
                         @endif
@@ -99,11 +97,11 @@
 
                 </nav>
 
-                @auth
+               @auth
                     @if(auth()->user()->role === 'seller')
                         <div class="relative shrink-0" id="catalogo-menu-container">
                             <button type="button"
-                                    class="px-3 py-1.5 rounded-lg text-slate-300 hover:text-white hover:bg-slate-800 transition-all flex items-center gap-1 {{ request()->routeIs('categories.*') || request()->routeIs('products.*') || request()->routeIs('ingredients.*') || request()->routeIs('recipes.*') ? 'bg-green-600/20 text-green-400 border border-green-600/30' : '' }}"
+                                    class="px-3 py-1.5 rounded-lg text-slate-300 hover:text-white hover:bg-slate-800 transition-all flex items-center gap-1"
                                     id="catalogo-trigger-btn">
                                 <span>Catálogo</span>
                                 <svg class="w-3 h-3 transition-transform duration-200" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" id="catalogo-arrow">
@@ -113,15 +111,15 @@
                             <div class="absolute left-0 mt-2 w-44 origin-top-left rounded-xl border border-slate-800 bg-slate-950 p-1.5 shadow-2xl backdrop-blur-md transition-all duration-200 transform opacity-0 scale-95 pointer-events-none z-[60]"
                                  id="catalogo-dropdown-menu">
                                 <a href="{{ route('categories.index') }}"
-                                   class="block text-xs font-medium text-slate-300 hover:text-white hover:bg-slate-800 px-3 py-2 rounded-lg transition-colors {{ request()->routeIs('categories.*') ? 'text-green-400' : '' }}">
+                                   class="block text-xs font-medium text-slate-300 hover:text-white hover:bg-slate-800 px-3 py-2 rounded-lg transition-colors">
                                     Categorías
                                 </a>
                                 <a href="{{ route('products.index') }}"
-                                   class="block text-xs font-medium text-slate-300 hover:text-white hover:bg-slate-800 px-3 py-2 rounded-lg transition-colors {{ request()->routeIs('products.*') ? 'text-green-400' : '' }}">
+                                   class="block text-xs font-medium text-slate-300 hover:text-white hover:bg-slate-800 px-3 py-2 rounded-lg transition-colors">
                                     Productos
                                 </a>
                                 <a href="{{ route('ingredients.index') }}"
-                                   class="block text-xs font-medium text-slate-300 hover:text-white hover:bg-slate-800 px-3 py-2 rounded-lg transition-colors {{ request()->routeIs('ingredients.*') ? 'text-green-400' : '' }}">
+                                   class="block text-xs font-medium text-slate-300 hover:text-white hover:bg-slate-800 px-3 py-2 rounded-lg transition-colors">
                                     Ingredientes
                                 </a>
                             </div>
@@ -165,42 +163,61 @@
                             </svg>
                         </button>
 
-                        <div class="absolute right-0 mt-2 w-52 origin-top-right rounded-xl border border-slate-800 bg-slate-950 p-2 shadow-2xl backdrop-blur-md transition-all duration-200 transform opacity-0 scale-95 pointer-events-none z-[60] user-dropdown-panel"
-                             id="user-dropdown-menu">
-                            <div class="px-3 py-2 border-b border-slate-900 mb-1">
-                                <p class="text-[9px] font-bold text-slate-500 uppercase tracking-wider">Rol de acceso</p>
-                                <p class="text-xs font-medium capitalize {{ auth()->user()->role === 'admin' ? 'text-purple-400' : 'text-indigo-400' }}">
-                                    @if(auth()->user()->role === 'admin') Administrador
-                                    @elseif(auth()->user()->role === 'seller') Emprendedor
-                                    @else Cliente
-                                    @endif
-                                </p>
-                            </div>
-                            @if(auth()->user()->role === 'seller')
-                                <div class="py-1 mb-1 border-b border-slate-900">
-                                    <a href="{{ route('business_profile.edit') }}" class="nav-dropdown-link {{ request()->routeIs('business_profile.*') ? 'nav-dropdown-link-active' : '' }}">Configurar Perfil</a>
-                                    @if(auth()->user()->businessProfile)
-                                        <a href="{{ route('catalog.show', auth()->user()->businessProfile->id) }}" class="nav-dropdown-link" target="_blank">Ver mi catálogo público</a>
-                                    @endif
-                                </div>
-                            @endif
-                            @if(auth()->user()->role === 'client')
-                                <div class="py-1 mb-1 border-b border-slate-900">
-                                    <a href="{{ route('client_profile.edit') }}" class="nav-dropdown-link {{ request()->routeIs('client_profile.*') ? 'nav-dropdown-link-active' : '' }}">Mi Perfil</a>
-                                    <a href="{{ route('reservations.index') }}" class="nav-dropdown-link {{ request()->routeIs('reservations.index') ? 'nav-dropdown-link-active' : '' }}">Mis compras</a>
-                                </div>
-                            @endif
-                            <form action="{{ route('logout') }}" method="POST" class="block pt-1">
-                                @csrf
-                                <button type="submit" id="btn-logout"
-                                        class="nav-dropdown-logout w-full flex items-center space-x-2 text-left text-xs font-semibold p-2.5 rounded-lg transition-all duration-200 cursor-pointer">
-                                    <svg class="w-4 h-4 shrink-0" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
-                                        <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 9V5.25A2.25 2.25 0 0013.5 3h-6a2.25 2.25 0 00-2.25 2.25v13.5A2.25 2.25 0 007.5 21h6a2.25 2.25 0 002.25-2.25V15M12 9l-3 3m0 0l3 3m-3-3h12.75" />
-                                    </svg>
-                                    <span>Salir</span>
-                                </button>
-                            </form>
-                        </div>
+                        <div class="absolute right-0 mt-2 w-52 origin-top-right rounded-xl p-2 shadow-2xl backdrop-blur-md transition-all duration-200 transform opacity-0 scale-95 pointer-events-none z-[60] user-dropdown-panel"
+     id="user-dropdown-menu"
+     style="background-color: #0a0a0a !important; border: 1px solid rgba(255, 255, 255, 0.12) !important; background-image: none !important;">
+    
+    <!-- Seccion Rol -->
+    <div class="px-3 py-2 mb-1" style="border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;">
+        <p class="text-[9px] font-bold uppercase tracking-wider" style="color: rgba(255, 255, 255, 0.5) !important;">Rol de acceso</p>
+        <p class="text-xs font-medium capitalize mt-0.5" style="color: #f5a623 !important;">
+            @if(auth()->user()->role === 'admin') Administrador
+            @elseif(auth()->user()->role === 'seller') Emprendedor
+            @else Cliente
+            @endif
+        </p>
+    </div>
+
+    <!-- Opciones Emprendedor -->
+    @if(auth()->user()->role === 'seller')
+        <div class="py-1 mb-1" style="border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;">
+            <a href="{{ route('business_profile.edit') }}" 
+               class="block px-3 py-2 rounded-lg text-xs font-medium transition-colors hover:bg-white/10" 
+               style="color: #ffffff !important;">Configurar Perfil</a>
+            @if(auth()->user()->businessProfile)
+                <a href="{{ route('catalog.show', auth()->user()->businessProfile->id) }}" 
+                   class="block px-3 py-2 rounded-lg text-xs font-medium transition-colors hover:bg-white/10" 
+                   target="_blank" 
+                   style="color: #ffffff !important;">Ver mi catálogo público</a>
+            @endif
+        </div>
+    @endif
+
+    <!-- Opciones Cliente -->
+    @if(auth()->user()->role === 'client')
+        <div class="py-1 mb-1" style="border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;">
+            <a href="{{ route('client_profile.edit') }}" 
+               class="block px-3 py-2 rounded-lg text-xs font-medium transition-colors hover:bg-white/10" 
+               style="color: #ffffff !important;">Mi Perfil</a>
+            <a href="{{ route('reservations.index') }}" 
+               class="block px-3 py-2 rounded-lg text-xs font-medium transition-colors hover:bg-white/10" 
+               style="color: #ffffff !important;">Mis compras</a>
+        </div>
+    @endif
+
+    <!-- Botón Salir -->
+    <form action="{{ route('logout') }}" method="POST" class="block pt-1">
+        @csrf
+        <button type="submit" id="btn-logout"
+                class="w-full flex items-center space-x-2 text-left text-xs font-semibold p-2.5 rounded-lg transition-colors cursor-pointer hover:bg-white/10"
+                style="color: #ffffff !important; background-color: transparent !important; background-image: none !important;">
+            <svg class="w-4 h-4 shrink-0" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" style="color: #ffffff !important;">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 9V5.25A2.25 2.25 0 0013.5 3h-6a2.25 2.25 0 00-2.25 2.25v13.5A2.25 2.25 0 007.5 21h6a2.25 2.25 0 002.25-2.25V15M12 9l-3 3m0 0l3 3m-3-3h12.75" />
+            </svg>
+            <span style="color: #ffffff !important;">Salir</span>
+        </button>
+    </form>
+</div>
                     </div>
                 @endauth
             </div>

@@ -9,32 +9,53 @@
 <link rel="stylesheet" href="{{ asset('css/sections/seller-reservations.css') }}">
 
 <div class="page-banner" style="margin-bottom:1.5rem;">
-  <img src="{{ asset('images/banner-home.png') }}" alt="" class="page-banner__bg">
-  <div class="page-banner__overlay"></div>
-  <div class="page-banner__content">
-    <h1 class="page-banner__title">Gestión de Pedidos</h1>
-    <p class="page-banner__subtitle">Revisá y gestioná las compras de tus clientes.</p>
-  </div>
+  <div class="page-banner text-center max-w-xl mx-auto p-8 rounded-2xl shadow-2xl overflow-hidden" 
+     style="margin-bottom: 1.5rem; background-color: rgba(18, 18, 18, 0.65) !important; backdrop-filter: blur(12px) !important; -webkit-backdrop-filter: blur(12px) !important; border: 1px solid rgba(255, 255, 255, 0.12) !important; background-image: none !important;">
+    
+    <div class="page-banner__content relative z-10">
+        <!-- Título Blanco -->
+        <h1 class="page-banner__title text-2xl md:text-3xl font-extrabold tracking-tight mb-2" 
+            style="color: #ffffff !important; -webkit-text-fill-color: #ffffff !important;">
+            Gestión de Pedidos
+        </h1>
+        
+        <!-- Subtítulo Amarillo -->
+        <p class="page-banner__subtitle text-sm md:text-base font-medium" 
+           style="color: #f5a623 !important; -webkit-text-fill-color: #f5a623 !important; opacity: 0.9;">
+            Revisá y gestioná las compras de tus clientes.
+        </p>
+    </div>
+</div>
 </div>
 
 <div class="seller-reservations">
   {{-- Header acciones --}}
   <div class="seller-reservations__header">
-    <div class="seller-reservations__header-right">
-      <div class="seller-reservations__total-badge" id="sr-total" role="status" aria-live="polite">
-        <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+    <div class="seller-reservations__header-right flex items-center gap-3">
+      
+      <!-- Badge Total Compras (Translúcido / Glassmorphism) -->
+      <div class="seller-reservations__total-badge inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-semibold shadow-lg" 
+           id="sr-total" role="status" aria-live="polite"
+           style="background-color: rgba(18, 18, 18, 0.65) !important; backdrop-filter: blur(12px) !important; -webkit-backdrop-filter: blur(12px) !important; color: #ffffff !important; border: 1px solid rgba(255, 255, 255, 0.15) !important; background-image: none !important;">
+        <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" style="color: #ffffff !important;">
           <path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
         </svg>
-        <span>0 compras</span>
+        <span style="color: #ffffff !important;">0 compras</span>
       </div>
-      <a href="{{ route('reservations.export', request()->query()) }}" class="seller-reservations__export-btn" title="Exportar a CSV">
-        <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+
+      <!-- Botón Exportar (Translúcido / Glassmorphism) -->
+      <a href="{{ route('reservations.export', request()->query()) }}" 
+         class="seller-reservations__export-btn inline-flex items-center gap-2 px-3.5 py-1.5 rounded-xl text-xs font-semibold shadow-lg transition-all hover:bg-white/10" 
+         title="Exportar a CSV"
+         style="background-color: rgba(18, 18, 18, 0.65) !important; backdrop-filter: blur(12px) !important; -webkit-backdrop-filter: blur(12px) !important; color: #ffffff !important; border: 1px solid rgba(255, 255, 255, 0.15) !important; background-image: none !important;">
+        <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" style="color: #ffffff !important;">
           <path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3" />
         </svg>
-        <span>Exportar</span>
+        <span style="color: #ffffff !important;">Exportar</span>
       </a>
+
     </div>
-  </div>
+</div>
 
   {{-- Filters --}}
   <div class="seller-reservations__filters">
