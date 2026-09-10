@@ -10,25 +10,40 @@
     $categoriesList = $categories->loadCount('products');
 @endphp
 
-<div class="page-banner" style="margin-bottom:1.5rem;">
-    <img src="{{ asset('images/banner-home.png') }}" alt="" class="page-banner__bg">
-    <div class="page-banner__overlay"></div>
-    <div class="page-banner__content">
-        <h1 class="page-banner__title">Categorías</h1>
-        <p class="page-banner__subtitle">Organizá tus productos por categoría.</p>
+<div class="page-banner w-full p-6 md:p-8 rounded-2xl shadow-2xl overflow-hidden relative" 
+     style="margin-bottom: 1.5rem; background-color: rgba(18, 18, 18, 0.65) !important; backdrop-filter: blur(12px) !important; -webkit-backdrop-filter: blur(12px) !important; border: 1px solid rgba(255, 255, 255, 0.12) !important; background-image: none !important;">
+    
+    <!-- Imagen de fondo con blur -->
+    <img src="{{ asset('images/banner-home.png') }}" alt="" class="page-banner__bg absolute inset-0 w-full h-full object-cover pointer-events-none" 
+         style="filter: blur(12px) !important; opacity: 0.35 !important; transform: scale(1.08) !important; z-index: 0;">
+
+    <div class="page-banner__content relative z-10 text-left">
+        <!-- Título Blanco -->
+        <h1 class="page-banner__title text-2xl md:text-3xl font-extrabold tracking-tight mb-1" 
+            style="color: #ffffff !important; -webkit-text-fill-color: #ffffff !important;">
+            Categorías
+        </h1>
+        
+        <!-- Subtítulo Amarillo -->
+        <p class="page-banner__subtitle text-sm md:text-base font-medium" 
+           style="color: #f5a623 !important; -webkit-text-fill-color: #f5a623 !important; opacity: 0.9;">
+            Organizá tus productos por categoría.
+        </p>
     </div>
 </div>
 <div class="py-6">
 
     {{-- Top bar: volver --}}
-    <div class="flex justify-end mb-4">
-        <a href="{{ route('dashboard') }}" class="inline-flex items-center space-x-2 text-xs text-slate-400 hover:text-white bg-slate-900/60 border border-slate-800/80 hover:border-slate-700 rounded-xl px-4 py-2.5 transition-all duration-200">
-            <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
-            </svg>
-            <span>Volver al Panel</span>
-        </a>
-    </div>
+   <div class="flex justify-end mb-4">
+    <a href="{{ route('dashboard') }}" 
+       class="inline-flex items-center space-x-2 text-xs bg-slate-900/60 border border-slate-800/80 hover:border-slate-700 rounded-xl px-4 py-2.5 transition-all duration-200"
+       style="color: #000000 !important;">
+        <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" style="color: #000000 !important;">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+        </svg>
+        <span style="color: #000000 !important;">Volver al Panel</span>
+    </a>
+</div>
 
     {{-- Buscador centrado --}}
     @if(!$categoriesList->isEmpty())
@@ -50,9 +65,9 @@
         <div id="create-category-container" class="border border-slate-800/80 bg-slate-900/40 backdrop-blur rounded-2xl p-6 shadow-xl shadow-indigo-950/10 relative overflow-hidden group">
             <div class="absolute top-0 right-0 w-32 h-32 rounded-full bg-indigo-500/5 blur-2xl pointer-events-none group-hover:bg-indigo-500/10 transition-all duration-500"></div>
 
-            <h2 class="text-lg font-semibold text-white mb-4 flex items-center space-x-2">
+             <h2 style="color: #000000 !important;" class="text-lg font-semibold mb-4 flex items-center space-x-2">
                 <span class="w-2 h-2 rounded-full bg-indigo-500"></span>
-                <span>Nueva Categoría</span>
+             <span>Nueva Categoría</span>
             </h2>
 
             <form action="{{ route('categories.create') }}" method="POST" class="space-y-4">
@@ -75,22 +90,23 @@
                     <p class="text-[11px] text-slate-500 mt-2">El nombre debe ser único y descriptivo. Mínimo 3 caracteres.</p>
                 </div>
 
-                <button
-                    type="submit"
-                    class="w-full relative group/btn flex items-center justify-center space-x-2 bg-gradient-to-r from-indigo-600 to-purple-600 text-white font-semibold text-sm rounded-xl py-3 shadow-lg shadow-indigo-600/20 hover:shadow-indigo-500/30 transition-all duration-300 cursor-pointer overflow-hidden active:scale-[0.98]"
-                >
-                    <svg class="w-4 h-4 shrink-0 transition-transform group-hover/btn:scale-110" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
-                    </svg>
-                    <span>Crear Categoría</span>
-                </button>
+              <button
+    type="submit"
+    style="background: #000000 !important; color: #ffffff !important;"
+    class="w-full relative group/btn flex items-center justify-center space-x-2 font-semibold text-sm rounded-xl py-3 shadow-lg transition-all duration-300 cursor-pointer overflow-hidden active:scale-[0.98]"
+>
+    <svg class="w-4 h-4 shrink-0 transition-transform group-hover/btn:scale-110" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+    </svg>
+    <span>Crear Categoría</span>
+</button>   
             </form>
         </div>
 
         {{-- Right: Lista de categorías --}}
         <div class="border border-slate-800/80 bg-slate-900/40 backdrop-blur rounded-2xl p-6 shadow-xl shadow-indigo-950/10">
-            <h2 class="text-lg font-semibold text-white mb-6 flex items-center space-x-2">
-                <span>Categorías Existentes</span>
+            <h2 style="color: #000000 !important;" class="text-lg font-semibold mb-6 flex items-center space-x-2">
+    <span>Categorías Existentes</span>
                 <span class="text-xs font-normal text-slate-400">({{ $categoriesList->count() }})</span>
             </h2>
 
@@ -165,19 +181,20 @@
                         </button>
 
                         <form action="{{ route('categories.destroy', $category->id) }}" method="POST" class="inline-block">
-                            @csrf
-                            @method('DELETE')
-                            <button
-                                type="submit"
-                                class="p-2 rounded-lg text-slate-500 hover:text-rose-400 hover:bg-rose-500/10 border border-transparent hover:border-rose-500/20 transition-all duration-300 cursor-pointer"
-                                title="Eliminar categoría"
-                                data-confirm="¿Eliminar la categoría «{{ $category->name }}»?"
-                            >
-                                <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
-                                </svg>
-                            </button>
-                        </form>
+    @csrf
+    @method('DELETE')
+    <button
+        type="submit"
+        style="background-color: #000000 !important; color: #facc15 !important;"
+        class="p-2 rounded-lg border border-transparent transition-all duration-300 cursor-pointer"
+        title="Eliminar categoría"
+        data-confirm="¿Eliminar la categoría «{{ $category->name }}»?"
+    >
+        <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+        </svg>
+    </button>
+</form>
                     </div>
                 </div>
                 @endforeach

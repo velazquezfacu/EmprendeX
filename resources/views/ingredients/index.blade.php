@@ -6,12 +6,17 @@
 @section('content_width', 'max-w-6xl mx-auto')
 
 @section('content')
-<div class="page-banner" style="margin-bottom:1.5rem;">
-    <img src="{{ asset('images/banner-home.png') }}" alt="" class="page-banner__bg">
-    <div class="page-banner__overlay"></div>
-    <div class="page-banner__content">
+<div class="page-banner" style="margin-bottom:1.5rem; position: relative; overflow: hidden; display: flex; align-items: center; justify-content: center; text-align: center; min-height: 200px;">
+    <img 
+        src="{{ asset('images/banner-home.png') }}" 
+        alt="" 
+        class="page-banner__bg" 
+        style="filter: blur(4px); mix-blend-mode: normal; position: absolute; width: 100%; height: 100%; object-fit: cover; top: 0; left: 0;"
+    >
+    <div class="page-banner__overlay" style="background: rgba(0, 0, 0, 0.4) !important; position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></div>
+    <div class="page-banner__content" style="position: relative; z-index: 2; width: 100%;">
         <h1 class="page-banner__title">Mis Ingredientes</h1>
-        <p class="page-banner__subtitle">Administrá las materias primas y sus costos.</p>
+        <p class="page-banner__subtitle" style="color: #facc15 !important;">Administrá las materias primas y sus costos.</p>
     </div>
 </div>
 <div class="w-full max-w-6xl mx-auto px-2 sm:px-6 py-2">
@@ -32,15 +37,16 @@
             >
         </form>
         <a href="{{ route('ingredients.create') }}"
-           class="bg-emerald-500 hover:bg-emerald-600 text-slate-950 text-xs font-bold px-4 py-2 rounded-lg transition-colors duration-200 inline-flex items-center justify-center shadow-md shadow-emerald-500/5 whitespace-nowrap">
-            + Nuevo Ingrediente
-        </a>
+   style="background-color: #000000 !important; color: #ffffff !important;"
+   class="text-xs font-bold px-4 py-2 rounded-lg transition-colors duration-200 inline-flex items-center justify-center shadow-md whitespace-nowrap">
+    + Nuevo Ingrediente
+</a>
     </div>
 
     <div class="overflow-x-auto rounded-lg border border-slate-800/50 bg-slate-950/20">
         <table class="w-full text-left text-xs sm:text-sm text-slate-300">
             <thead>
-                <tr class="border-b border-slate-800 bg-slate-900/50 text-[10px] uppercase text-slate-400 tracking-wider">
+                <tr class="border-b border-slate-800 bg-slate-900/50 text-[10px] uppercase text-black font-bold tracking-wider">
                     <th class="px-4 py-3">Ingrediente</th>
                     <th class="px-4 py-3">Unidad de compra</th>
                     <th class="px-4 py-3">Costo</th>
@@ -97,18 +103,21 @@
 
                         <td class="px-4 py-3 text-right space-x-1 whitespace-nowrap">
                             <a href="{{ route('ingredients.edit', $ingredient->id) }}"
-                               class="inline-flex items-center text-[10px] sm:text-[11px] bg-slate-800 hover:bg-slate-700 text-indigo-300 px-2 py-1 rounded transition-colors">
-                                Editar
+                                style="color: #000000 !important;"
+                                 class="inline-flex items-center text-[10px] sm:text-[11px] bg-slate-800 hover:bg-slate-700 px-2 py-1 rounded transition-colors">
+                                      Editar
                             </a>
 
                             <form action="{{ route('ingredients.destroy', $ingredient->id) }}" method="POST" class="inline">
-                                @csrf
-                                @method('DELETE')
-                                <button type="submit" class="text-[10px] sm:text-[11px] bg-slate-800/80 hover:bg-rose-950 hover:text-rose-400 text-slate-400 px-2 py-1 rounded transition-colors"
-                                        data-confirm="¿Eliminar «{{ $ingredient->name }}»? Si está en alguna receta puede afectar el cálculo de costos.">
-                                    Eliminar
-                                </button>
-                            </form>
+    @csrf
+    @method('DELETE')
+    <button type="submit" 
+            style="background-color: #000000 !important; color: #facc15 !important;"
+            class="text-[10px] sm:text-[11px] px-2 py-1 rounded transition-colors"
+            data-confirm="¿Eliminar «{{ $ingredient->name }}»? Si está en alguna receta puede afectar el cálculo de costos.">
+        Eliminar
+    </button>
+</form>
                         </td>
                     </tr>
                 @empty

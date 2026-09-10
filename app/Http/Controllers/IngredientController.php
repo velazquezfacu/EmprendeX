@@ -28,10 +28,19 @@ class IngredientController extends Controller
     /**
      * Muestra el formulario para crear un ingrediente nuevo.
      */
-    public function create()
-    {
-        return view('ingredients.create');
-    }
+   public function create()
+{
+    $businessProfileId = auth()->user()->businessProfile?->id;
+
+    $customUnits = Ingredient::where('business_profile_id', $businessProfileId)
+        ->whereNotIn('unit_measure', ['kg', 'g', 'litro', 'ml', 'docena', 'unidad'])
+        ->whereNotNull('unit_measure')
+        ->distinct()
+        ->orderBy('unit_measure')
+        ->pluck('unit_measure');
+
+    return view('ingredients.create', compact('customUnits'));
+}
 
     /**
      * Guarda un nuevo ingrediente en la base de datos.

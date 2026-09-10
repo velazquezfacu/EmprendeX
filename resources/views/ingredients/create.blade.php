@@ -6,12 +6,17 @@
 @section('content_width', 'max-w-6xl mx-auto')
 
 @section('content')
-<div class="page-banner" style="margin-bottom:1.5rem;">
-    <img src="{{ asset('images/banner-home.png') }}" alt="" class="page-banner__bg">
-    <div class="page-banner__overlay"></div>
-    <div class="page-banner__content">
+<div class="page-banner" style="margin-bottom:1.5rem; position: relative; overflow: hidden; display: flex; align-items: center; justify-content: center; text-align: center; min-height: 200px;">
+    <img 
+        src="{{ asset('images/banner-home.png') }}" 
+        alt="" 
+        class="page-banner__bg" 
+        style="filter: blur(4px); mix-blend-mode: normal; position: absolute; width: 100%; height: 100%; object-fit: cover; top: 0; left: 0;"
+    >
+    <div class="page-banner__overlay" style="background: rgba(0, 0, 0, 0.4) !important; position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></div>
+    <div class="page-banner__content" style="position: relative; z-index: 2; width: 100%;">
         <h1 class="page-banner__title">Nuevo Ingrediente</h1>
-        <p class="page-banner__subtitle">Registrá un ingrediente y su costo unitario.</p>
+        <p class="page-banner__subtitle" style="color: #facc15 !important;">Registrá un ingrediente y su costo unitario.</p>
     </div>
 </div>
 <div class="w-full max-w-2xl mx-auto px-4 py-6">
@@ -40,16 +45,28 @@
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
                     <label for="unit_measure" class="block text-xs font-semibold text-slate-400 uppercase tracking-wider mb-2">Unidad de Medida</label>
-                    <select name="unit_measure" id="unit_measure" required
-                            class="w-full bg-slate-950 border border-slate-800 rounded-lg px-3 py-2.5 text-sm text-slate-300 focus:outline-none focus:border-emerald-500 transition-colors cursor-pointer">
+                    <select id="unit_measure_select" required
+                             class="w-full bg-slate-950 border border-slate-800 rounded-lg px-3 py-2.5 text-sm text-slate-300 focus:outline-none focus:border-emerald-500 transition-colors cursor-pointer">
                         <option value="">-- Seleccionar unidad --</option>
                         <option value="kg">Kilogramo (kg)</option>
                         <option value="g">Gramo (g)</option>
                         <option value="litro">Litro (litro)</option>
                         <option value="ml">Mililitro (ml)</option>
                         <option value="docena">Docena (docena)</option>
-                        <option value="unidad">Unidad (unidad)</option>
+                     <option value="unidad">Unidad (unidad)</option>
+                    @foreach($customUnits as $customUnit)
+                        <option value="{{ $customUnit }}">{{ $customUnit }}</option>
+                    @endforeach
+                        <option value="otra">Otra (especificar)</option>
                     </select>
+
+                    <input type="hidden" name="unit_measure" id="unit_measure_hidden">
+
+                    <div id="unit_measure_custom_wrapper" class="mt-2" style="display: none;">
+                        <input type="text" id="unit_measure_custom" maxlength="50"
+                                 placeholder="Ej: resma, metro, docena de tornillos..."
+                                  class="w-full bg-slate-950 border border-slate-800 rounded-lg px-3 py-2.5 text-sm text-slate-200 focus:outline-none focus:border-emerald-500 transition-colors">
+                    </div>
                 </div>
 
                 <div>
@@ -141,6 +158,26 @@ function normalizeNumber(val) {
     // Sin separador: número entero
     return val;
 }
+const unitSelect = document.getElementById('unit_measure_select');
+const unitHidden = document.getElementById('unit_measure_hidden');
+const customWrapper = document.getElementById('unit_measure_custom_wrapper');
+const customInput = document.getElementById('unit_measure_custom');
+
+unitSelect.addEventListener('change', function () {
+    if (this.value === 'otra') {
+        customWrapper.style.display = 'block';
+        customInput.setAttribute('required', 'required');
+        unitHidden.value = '';
+    } else {
+        customWrapper.style.display = 'none';
+        customInput.removeAttribute('required');
+        unitHidden.value = this.value;
+    }
+});
+
+customInput.addEventListener('input', function () {
+    unitHidden.value = this.value.trim();
+});
 
 document.getElementById('ingredient-form').addEventListener('submit', function () {
     ['unit_cost', 'stock', 'stock_minimo'].forEach(function (id) {

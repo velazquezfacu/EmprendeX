@@ -13,28 +13,33 @@
     $inactiveProducts = $inactivos;
 @endphp
 
-<div class="page-banner" style="margin-bottom:1.5rem;">
-    <img src="{{ asset('images/banner-home.png') }}" alt="" class="page-banner__bg">
-    <div class="page-banner__overlay"></div>
-    <div class="page-banner__content">
+<div class="page-banner" style="margin-bottom:1.5rem; position: relative; overflow: hidden; display: flex; align-items: center; justify-content: center; text-align: center; min-height: 200px;">
+    <img 
+        src="{{ asset('images/banner-home.png') }}" 
+        alt="" 
+        class="page-banner__bg" 
+        style="filter: blur(4px); mix-blend-mode: normal; position: absolute; width: 100%; height: 100%; object-fit: cover; top: 0; left: 0;"
+    >
+    <div class="page-banner__overlay" style="background: rgba(0, 0, 0, 0.4) !important; position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></div>
+    <div class="page-banner__content" style="position: relative; z-index: 2; width: 100%;">
         <h1 class="page-banner__title">Mis Productos</h1>
-        <p class="page-banner__subtitle">Gestioná el catálogo de tu emprendimiento.</p>
+        <p class="page-banner__subtitle" style="color: #facc15 !important;">Gestioná el catálogo de tu emprendimiento.</p>
     </div>
 </div>
 <div class="py-6">
     <div class="flex justify-end gap-3 mb-6">
-        <a href="{{ route('dashboard') }}" class="inline-flex items-center space-x-2 text-xs text-slate-400 hover:text-white bg-slate-900/60 border border-slate-800/80 hover:border-slate-700 rounded-xl px-4 py-2.5 transition-all duration-200">
-            <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
-            </svg>
-            <span>Volver al Panel</span>
-        </a>
-        <a href="{{ route('products.create') }}" class="inline-flex items-center space-x-2 text-xs bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-500 hover:to-purple-500 text-white font-semibold rounded-xl px-4 py-2.5 shadow-lg shadow-indigo-600/20 hover:shadow-indigo-500/30 transition-all duration-300">
-            <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
-            </svg>
-            <span>Nuevo Producto</span>
-        </a>
+        <a href="{{ route('dashboard') }}" style="color: #000000 !important;" class="inline-flex items-center space-x-2 text-xs bg-slate-900/60 border border-slate-800/80 hover:border-slate-700 rounded-xl px-4 py-2.5 transition-all duration-200">
+    <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+    </svg>
+    <span>Volver al Panel</span>
+</a>
+        <a href="{{ route('products.create') }}" style="background: #000000 !important; color: #ffffff !important;" class="inline-flex items-center space-x-2 text-xs font-semibold rounded-xl px-4 py-2.5 shadow-lg transition-all duration-300">
+    <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+    </svg>
+    <span>Nuevo Producto</span>
+</a>
     </div>
 
     <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-8">
@@ -165,15 +170,15 @@
                             </div>
                         </td>
 
-                        <td class="p-4">
-                            @if($product->category)
-                                <span class="inline-flex items-center px-2.5 py-0.5 rounded-md text-xs font-semibold bg-slate-900 text-indigo-400 border border-slate-800/80">
-                                    {{ $product->category->name }}
-                                </span>
-                            @else
-                                <span class="text-xs text-slate-600 italic">Ninguna</span>
-                            @endif
-                        </td>
+                       <td class="p-4">
+    @if($product->category)
+        <span style="color: #000000 !important;" class="inline-flex items-center px-2.5 py-0.5 rounded-md text-xs font-semibold bg-slate-900 border border-slate-800/80">
+            {{ $product->category->name }}
+        </span>
+    @else
+        <span style="color: #000000 !important;" class="text-xs italic">Ninguna</span>
+    @endif
+</td>
 
                         <td class="p-4">
                             <span class="font-semibold text-white text-sm">
@@ -224,7 +229,7 @@
                                     <span class="pointer-events-none inline-block h-4 w-4 transform rounded-full bg-white shadow ring-0 transition-all duration-300 ease-[cubic-bezier(0.34,1.56,0.64,1)] {{ $product->is_active ? 'translate-x-4' : 'translate-x-0' }}"></span>
                                 </button>
                             </form>
-                            <span class="ml-2 text-xs font-semibold {{ $product->is_active ? 'text-emerald-400' : 'text-slate-500' }}">
+                            <span class="ml-2 text-xs font-semibold {{ $product->is_active ? '' : 'text-slate-500' }}" style="{{ $product->is_active ? 'color: #000000 !important; text-shadow: 0 0 3px rgba(0, 0, 0, 0.6), 0 0 8px rgba(0, 0, 0, 0.3) !important;' : '' }}">
                                 {{ $product->is_active ? 'Activo' : 'Oculto' }}
                             </span>
                         </td>
@@ -252,19 +257,20 @@
                                 </a>
 
                                 <form action="{{ route('products.destroy', $product->id) }}" method="POST" class="inline-block">
-                                    @csrf
-                                    @method('DELETE')
-                                    <button 
-                                        type="submit" 
-                                        class="p-2 rounded-lg text-slate-400 hover:text-rose-450 hover:bg-rose-500/10 border border-transparent hover:border-rose-500/20 transition-all duration-300 cursor-pointer"
-                                        title="Eliminar producto"
-                                        data-confirm="¿Eliminar el producto «{{ $product->name }}»?"
-                                    >
-                                        <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
-                                            <path stroke-linecap="round" stroke-linejoin="round" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
-                                        </svg>
-                                    </button>
-                                </form>
+    @csrf
+    @method('DELETE')
+    <button 
+        type="submit" 
+        style="background-color: #000000 !important; color: #facc15 !important;"
+        class="p-2 rounded-lg border border-transparent transition-all duration-300 cursor-pointer"
+        title="Eliminar producto"
+        data-confirm="¿Eliminar el producto «{{ $product->name }}»?"
+    >
+        <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+        </svg>
+    </button>
+</form>
                             </div>
                         </td>
                     </tr>
