@@ -28,17 +28,17 @@
     </div>
 
     <div class="bg-slate-900/40 border border-slate-800/80 rounded-xl p-6 backdrop-blur-sm shadow-xl">
-        <div class="border-b border-slate-800 pb-4 mb-6">
-            <h2 class="text-xl font-bold text-white tracking-tight">Agregar Nuevo Ingrediente</h2>
-            <p class="text-slate-400 text-xs mt-1">Registrá una materia prima para poder usarla en el cálculo de tus recetas.</p>
-        </div>
+       <div class="border-b border-slate-800 pb-4 mb-6">
+    <h2 style="color: #000000 !important;" class="text-xl font-bold tracking-tight">Agregar Nuevo Ingrediente</h2>
+    <p class="text-slate-400 text-xs mt-1">Registrá una materia prima para poder usarla en el cálculo de tus recetas.</p>
+</div>
 
         <form action="{{ route('ingredients.store') }}" method="POST" class="space-y-5" id="ingredient-form">
             @csrf
 
             <div>
                 <label for="name" class="block text-xs font-semibold text-slate-400 uppercase tracking-wider mb-2">Nombre del Ingrediente</label>
-                <input type="text" name="name" id="name" required placeholder="Ej: Harina 0000, Azúcar Blanco, Huevos"
+                <input type="text" name="name" id="name" required placeholder="Ej: Tela de algodón, Madera, Vinilo, Materiales..."
                        class="w-full bg-slate-950 border border-slate-800 rounded-lg px-3 py-2.5 text-sm text-slate-200 focus:outline-none focus:border-emerald-500 transition-colors">
             </div>
 
@@ -88,7 +88,7 @@
             </div>
 
             <div class="border-t border-slate-800/60 pt-4">
-                <p class="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-3">Stock</p>
+               <p style="color: #000000 !important;" class="text-xs font-semibold uppercase tracking-wider mb-3">Stock</p>
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
                         <label for="stock" class="block text-xs text-slate-500 mb-2">Cantidad en depósito</label>
@@ -108,12 +108,16 @@
             </div>
 
             <div class="flex items-center justify-end gap-3 pt-4 border-t border-slate-800/60">
-                <a href="{{ route('ingredients.index') }}" class="text-xs font-bold text-slate-400 hover:text-slate-200 px-4 py-2 transition-colors">
-                    Cancelar
-                </a>
-                <button type="submit" class="bg-emerald-500 hover:bg-emerald-600 text-slate-950 text-xs font-bold px-5 py-2.5 rounded-lg transition-colors shadow-md shadow-emerald-500/10">
-                    Guardar Ingrediente
-                </button>
+                <a href="{{ route('ingredients.index') }}" 
+   style="color: #000000 !important;" 
+   class="text-xs font-bold px-4 py-2 transition-colors">
+    Cancelar
+</a>
+               <button type="submit" 
+        style="background-color: #000000 !important; color: #ffffff !important;" 
+        class="text-xs font-bold px-5 py-2.5 rounded-lg transition-colors shadow-md">
+    Guardar Ingrediente
+</button>
             </div>
         </form>
     </div>

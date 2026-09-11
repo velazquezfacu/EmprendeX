@@ -845,33 +845,36 @@ class ReservationController extends Controller
                     $reservation->mp_preference_id = $preferenceId;
                     $reservation->save();
                 } else {
-                    $webhookUrl = route('reservations.mercadopago.webhook');
-                    $host = parse_url($webhookUrl, PHP_URL_HOST);
-                    $payload = [
-                        'items' => $items,
-                        'external_reference' => (string)$reservation->id,
-                        'payer' => [
-                            'name' => $reservation->user ? $reservation->user->name : 'Comprador',
-                            'email' => $reservation->user ? $reservation->user->email : 'test_user_123456@testuser.com',
-                        ],
-                        'back_urls' => [
-                            'success' => route('reservations.index'),
-                            'pending' => route('reservations.index'),
-                            'failure' => route('reservations.index'),
-                        ],
-                    ];
-                    
-                    // Only pass notification_url and auto_return redirects if it is a public HTTPS domain (prevents MP 400 Bad Request error on local env)
-                    if ($host && $host !== 'localhost' && $host !== '127.0.0.1' && !str_starts_with($host, '192.168.') && !str_starts_with($host, '10.')) {
-                        $payload['notification_url'] = $webhookUrl;
-                        $payload['auto_return'] = 'approved';
-                    }
+                    $baseUrl = rtrim(config('app.url'), '/');
+$webhookUrl = $baseUrl . '/webhooks/mercadopago';
+$reservationsUrl = $baseUrl . '/reservations';
+$host = parse_url($baseUrl, PHP_URL_HOST);
+
+$payload = [
+    'items' => $items,
+    'external_reference' => (string)$reservation->id,
+    'payer' => [
+        'name' => $reservation->user ? $reservation->user->name : 'Comprador',
+        'email' => $reservation->user ? $reservation->user->email : 'test_user_123456@testuser.com',
+    ],
+    'back_urls' => [
+        'success' => $reservationsUrl,
+        'pending' => $reservationsUrl,
+        'failure' => $reservationsUrl,
+    ],
+];
+
+if ($host && $host !== 'localhost' && $host !== '127.0.0.1' && !str_starts_with($host, '192.168.') && !str_starts_with($host, '10.')) {
+    $payload['notification_url'] = $webhookUrl;
+    $payload['auto_return'] = 'approved';
+}
 
                     $response = \Illuminate\Support\Facades\Http::withToken($mpToken)
                         ->post('https://api.mercadopago.com/checkout/preferences', $payload);
 
                     if ($response->successful()) {
                         $responseData = $response->json();
+                        \Illuminate\Support\Facades\Log::info('MP Preference Response', $responseData);
                         $preferenceId = $responseData['id'];
                         $initUrl = $responseData['init_point'] ?? $responseData['sandbox_init_point'] ?? null;
                         $reservation->mp_preference_id = $preferenceId;

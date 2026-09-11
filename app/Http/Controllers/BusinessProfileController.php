@@ -176,7 +176,7 @@ class BusinessProfileController extends Controller
         if ($clientId === '8765432101234567') {
             return redirect()->route('business_profile.mercadopago.callback', ['code' => 'mock_code_123']);
         }
-        $redirectUri = route('business_profile.mercadopago.callback');
+        $redirectUri = rtrim(config('app.url'), '/') . '/profile/mp-callback';
         $url = "https://auth.mercadopago.com/authorization?client_id={$clientId}&response_type=code&platform_id=mp&redirect_uri=" . urlencode($redirectUri);
         return redirect()->away($url);
     }
@@ -197,7 +197,7 @@ class BusinessProfileController extends Controller
                 'client_id' => $clientId,
                 'grant_type' => 'authorization_code',
                 'code' => $code,
-                'redirect_uri' => route('business_profile.mercadopago.callback'),
+                'redirect_uri' => rtrim(config('app.url'), '/') . '/profile/mp-callback',
             ]);
 
             if ($response->successful()) {

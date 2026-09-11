@@ -144,7 +144,7 @@
                 <div class="absolute inset-x-0 top-0 auth-accent-bar-seller rounded-t-2xl"></div>
 
                 <div class="profile-card-header">
-                    <h2 class="profile-card-title">Datos del negocio</h2>
+                    <h2 class="profile-card-title" style="color: #000000 !important;">Datos del negocio</h2>
                     <p class="profile-card-subtitle">Contacto y ubicación en el mapa.</p>
                 </div>
 
@@ -189,7 +189,7 @@
                     </div>
 
                     <div class="profile-field">
-                        <label class="profile-label font-semibold text-slate-100">Cobros Electrónicos (Vinculación 1-Click)</label>
+                        <label class="profile-label font-semibold" style="color: #000000 !important;">Cobros Electrónicos (Vinculación 1-Click)</label>
                         <p class="text-xs text-slate-400 mb-3">Conectá tu cuenta de Mercado Pago para recibir el dinero de tus ventas de forma inmediata y automática.</p>
                         <div class="flex flex-col sm:flex-row sm:items-center gap-4 mt-2">
                             <a href="{{ route('business_profile.mercadopago.connect') }}" class="btn-mp-connect flex items-center justify-center gap-2">
@@ -277,9 +277,11 @@
                         <p id="location-feedback" class="profile-field-hint mt-2">Arrastrá el marcador para ajustar la ubicación exacta.</p>
                     </div>
 
-                    <button type="submit" class="auth-role-btn auth-role-btn-seller w-full">
-                        Guardar cambios
-                    </button>
+                   <button type="submit" 
+        style="background-color: #000000 !important; color: #ffffff !important;" 
+        class="auth-role-btn auth-role-btn-seller w-full">
+    Guardar cambios
+</button>
                 </div>
             </div>
 
